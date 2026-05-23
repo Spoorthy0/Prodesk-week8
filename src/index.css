@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'tailwindcss';
+
+/* Custom CSS Variables - Golden Theme */
+:root {
+  --bg:            #fefaf0;
+  --bg-alt:        #f5eed8;
+  --text:          #3b2f2f;
+  --text-muted:    #7a6552;
+  --card:          #ffffff;
+  --card-border:   #e2d5b8;
+  --primary:       #d4af37;
+  --primary-dark:  #b8962e;
+  --primary-light: #fdf3c0;
+  --primary-rgb:   212, 175, 55;
+  --shadow-sm:     0 2px 8px rgba(180, 140, 60, 0.10);
+  --shadow-md:     0 6px 24px rgba(180, 140, 60, 0.14);
+  --shadow-lg:     0 12px 40px rgba(180, 140, 60, 0.18);
+  --chip-bg:       #fdf3c0;
+  --chip-text:     #7a5a00;
+  --divider:       #e8dccc;
+  --input-bg:      #fefdf8;
+  --upload-bg:     #fdfaf2;
+  --letter-bg:     #fffef9;
+  --letter-border: #e2d5b8;
+}
+
+.dark {
+  --bg:            #100e0b;
+  --bg-alt:        #1a1712;
+  --text:          #f5e6c8;
+  --text-muted:    #a08860;
+  --card:          #1c1a16;
+  --card-border:   #2e2a20;
+  --primary:       #d4af37;
+  --primary-dark:  #a8862c;
+  --primary-light: #2e2610;
+  --primary-rgb:   212, 175, 55;
+  --shadow-sm:     0 2px 8px rgba(0, 0, 0, 0.40);
+  --shadow-md:     0 6px 24px rgba(0, 0, 0, 0.50);
+  --shadow-lg:     0 12px 40px rgba(0, 0, 0, 0.60);
+  --chip-bg:       #2a2210;
+  --chip-text:     #d4af37;
+  --divider:       #2e2a20;
+  --input-bg:      #181510;
+  --upload-bg:     #181510;
+  --letter-bg:     #181510;
+  --letter-border: #2e2a20;
+}
+
+/* Custom Theme Layers */
+@theme {
+  --font-family-poppins: 'Poppins', sans-serif;
+  
+  --animate-fade-in: fadeIn 0.3s ease-in-out;
+  --animate-slide-in: slideIn 0.2s ease-out;
+  
+  @keyframes fadeIn {
+    0%: { opacity: 0; }
+    100%: { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    0%: { transform: translateY(-10px); opacity: 0; }
+    100%: { transform: translateY(0); opacity: 1; }
+  }
+}
+
+/* Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Utility Classes */
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: #9ca3af;
+    border-radius: 9999px;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #6b7280;
+  }
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-track {
+  background-color: #1f2937;
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #4b5563;
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280;
+}
+/* Fade-in animation for cards */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+/* Smooth scrollbar */
+html {
+  scroll-behavior: smooth;
+}
